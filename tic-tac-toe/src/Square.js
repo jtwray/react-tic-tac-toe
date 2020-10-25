@@ -10,7 +10,7 @@ export default class Square extends Component {
         alert(`
     you clicked ${this.props.value}
     `)
-    }eeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeee
+    }
     handleOnMouse() { }
     render() {
         return (
@@ -48,8 +48,7 @@ export default class Square extends Component {
                     height: "100px"
                 }}
                 className="square"
-                onClick={() => this.logMessage()
-                }
+                onClick={(event) => this.setState({ value: 'X' })}
             > { this.state.value} </button>)
     }
 }
