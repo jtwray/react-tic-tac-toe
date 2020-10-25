@@ -1,12 +1,10 @@
 import React, { Component } from "react";
-import PropTypes from "prop-types";
 import Square from './Square'
 export default class Board extends Component {
-  static propTypes = {
-    prop: PropTypes,
-  };
+
+
   renderSquare(i) {
-    return <Square />;
+    return <Square value={i} />;
   }
 
   render() {
