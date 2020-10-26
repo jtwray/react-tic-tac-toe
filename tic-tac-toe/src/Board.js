@@ -3,15 +3,18 @@ import Square from './Square'
 export default class Board extends Component {
   state = {
     squares: Array(9).fill(null),
-
+    nextMoveIs_X: true,
   }
 
   handleClick(i) {
     const nextMoveSquares = [...this.state.squares];
-    nextMoveSquares[i] =  "X";
-    
+    nextMoveSquares[i] = this.state.nextMoveIs_X ? "X" : "O";
+    const prevMoves = [...this.props.moveHistory];
+    prevMoves.push(this.state.squares);
     this.setState({
       squares: nextMoveSquares,
+      moveHistory: prevMoves,
+      nextMoveIs_X: !this.state.nextMoveIs_X
     });
   }
 
