@@ -1,21 +1,13 @@
 import React, { Component } from "react";
 import PropTypes from "prop-types";
 export default class Square extends Component {
+ 
 
-    state = {
-        value: this.props.value
-    }
-
-    logMessage() {
-        alert(`
-    you clicked ${this.props.value}
-    `)
-    }
     handleOnMouse() { }
     render() {
         return (
             <button
-                onMouseLeave={(e) => {
+                onMouseOver={(e) => {
                     e.target.style.background = 'darkred';
                     e.target.style.color = "darkred";
                     e.target.style.textShadow = `
@@ -24,7 +16,7 @@ export default class Square extends Component {
                     1px .5px .2px black
                     `
                 }}
-                onMouseOver={(e) => {
+                onMouseLeave={(e) => {
                     e.target.style.color = "darkred";
                     e.target.style.textShadow = `
                     -.4px -.4px .2px white,
@@ -48,8 +40,8 @@ export default class Square extends Component {
                     height: "100px"
                 }}
                 className="square"
-                onClick={(event) => this.setState({ value: 'X' })}
-            > { this.state.value} </button>)
+
+           onClick={()=>this.props.onClick(this.props.value)} > { this.props.value} </button>)
     }
 }
 
