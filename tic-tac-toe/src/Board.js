@@ -1,10 +1,27 @@
 import React, { Component } from "react";
 import Square from './Square'
 export default class Board extends Component {
+  state = {
+    squares: Array(9).fill(null),
 
+  }
+
+  handleClick(i) {
+    const nextMoveSquares = [...this.state.squares];
+    nextMoveSquares[i] =  "X";
+    
+    this.setState({
+      squares: nextMoveSquares,
+    });
+  }
 
   renderSquare(i) {
-    return <Square value={i} />;
+    return (
+      <Square
+        value={this.state.squares[i]}
+        onClick={() => this.handleClick(i)}
+      />
+    );
   }
 
   render() {
@@ -18,7 +35,7 @@ export default class Board extends Component {
           {this.renderSquare(1)}
           {this.renderSquare(2)}
         </div>
-        
+
         <div className="board-row">
           {this.renderSquare(3)}
           {this.renderSquare(4)}
