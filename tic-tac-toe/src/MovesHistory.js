@@ -7,7 +7,8 @@ const miniboard = {
   height: "100px",
   display: "flex",
   flexWrap: "wrap",
-  justifyContent:"space-evenly", alignItems:"center"
+  justifyContent: "space-evenly",
+  alignItems: "center",
 };
 
 const minisquare = {
@@ -20,7 +21,9 @@ const minisquare = {
 export default function MovesHistory({ currentMoveIndex, moveHistory }) {
   console.log(moveHistory);
   return (
-    <>
+    <section
+      style={{ maxWidth: "50vw", width: "50vw", border: "solid orange 1px" }}
+    >
       <h2>Moves History</h2>
       <h3>last boardstate:</h3>
       <div>{moveHistory[currentMoveIndex]}</div>
@@ -41,6 +44,8 @@ export default function MovesHistory({ currentMoveIndex, moveHistory }) {
           flexWrap: "wrap",
           justifyContent: "space-evenly",
           alignItems: "center",
+          border: "solid indigo 1rem",
+          background: "repeating-gradient(white 19px,red 30px,indigo 55px)",
         }}
         className="movehistorylist"
       >
@@ -52,16 +57,13 @@ export default function MovesHistory({ currentMoveIndex, moveHistory }) {
               ))}
             </section>
           ))}
-
-        {moveHistory
-          ? moveHistory.map((item, boardReplica) => (
-              <li>
-                Board Replica {boardReplica == null ? "_" : boardReplica})(
-                {item}
-              </li>
-            ))
-          : null}
+        {moveHistory.map((item, boardReplica) => (
+          <li>
+            Board Replica {boardReplica == null ? "_" : boardReplica}
+            {item}
+          </li>
+        ))}{" "}
       </div>
-    </>
+    </section>
   );
 }

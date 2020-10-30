@@ -34,10 +34,10 @@ export default class Square extends Component {
                     color: "darkred",
                     textShadow: `-.4px -.4px .2px white,
                     .4px .4px .2px black`,
-                    width: "100px",
+                    width: "10vw",
                     wordWrap: "wrap",
                     fontSize: '1.5rem',
-                    height: "100px"
+                    height: "10vw"
                 }}
                 className="square"
 

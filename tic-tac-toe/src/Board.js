@@ -46,14 +46,14 @@ export default class Board extends Component {
     if (winner) { status = `Winner:${winner}` }
 
     return (
-      <div>
+      <div style={{minWidth:"50%vw",border:"solid orange 1px"}}>
         <ErrorBoundary>
           <div className="status">Move# {this.props.currentMoveIndex}</div>
           <div className="status">{status}</div>
 
         </ErrorBoundary>
         <ErrorBoundary>
-          <div className="board-row">
+          <div className="board-row" style={{minWidth:"100%"}}>
             {this.renderSquare(0)}
             {this.renderSquare(1)}
             {this.renderSquare(2)}

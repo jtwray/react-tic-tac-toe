@@ -48,16 +48,14 @@ export default class Game extends Component {
               currentMoveIndex={this.state.currentMoveIndex}
             />
           </ErrorBoundary>
+        </div>
+        <div className="game-info">
           <ErrorBoundary>
             <MovesHistory
               moveHistory={this.state.moveHistory}
               currentMoveIndex={this.state.currentMoveIndex}
             />
           </ErrorBoundary>
-        </div>
-        <div className="game-info">
-          <div>{/* status */}</div>
-          <ol>{/* TODO */}</ol>
         </div>
       </div>
     );

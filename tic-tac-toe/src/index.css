@@ -1,8 +1,15 @@
 body {
     font: 14px "Century Gothic", Futura, sans-serif;
-    margin: 20px;
-  }
-  
+    display:flex;
+    justify-content: space-evenly;
+    align-items: center;
+    background: repeating-radial-gradient(circle at 44% 4%,#333,#333 16.18px,#eee 26.179px,purple 42.359px,orange 71.162px,red 115.141px,#fff 186.299px,indigo 301.432px);
+    background-repeat: no-repeat;
+    margin: 0 auto;
+    box-shadow: inset 3.4px 3.4px 4px 4px #faebd7, inset -3.4px -3.4px 4px 4px #a9a9a9;
+    border: 1rem solid #fff;
+    text-shadow: 1px 1px 1px #fff, -1px -1px 1px #000;
+}
   ol, ul {
     padding-left: 30px;
   }
@@ -29,7 +36,7 @@ body {
     margin-top: -1px;
     padding: 0;
     text-align: center;
-    width: 34px;
+    
   }
   
   .square:focus {
