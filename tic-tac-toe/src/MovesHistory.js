@@ -1,27 +1,67 @@
 import React from "react";
+import Square from "./Square";
 
+const miniboard = {
+  border: "5px solid green",
+  width: "100px",
+  height: "100px",
+  display: "flex",
+  flexWrap: "wrap",
+  justifyContent:"space-evenly", alignItems:"center"
+};
+
+const minisquare = {
+  border: "1px solid white",
+  background: "orange",
+  borderRadius: "5px",
+  width: "30%",
+  height: "30%",
+};
 export default function MovesHistory({ currentMoveIndex, moveHistory }) {
+  console.log(moveHistory);
   return (
     <>
       <h2>Moves History</h2>
-      <navitems>
+      <h3>last boardstate:</h3>
+      <div>{moveHistory[currentMoveIndex]}</div>
+      <nav>
         <button className="back">Back</button>
-        {currentMoveIndex < moveHistory.length - 1 ? (
+        {currentMoveIndex < moveHistory.length ? (
           <button onClick={() => currentMoveIndex++} className="forward">
             Forward
           </button>
         ) : (
-          <button inactive onClick={() => null} className="forward">
-            Forward
-          </button>
+          <p>Forward</p>
         )}
-      </navitems>
-      <div className="currentmove">{currentMoveIndex}</div>
-      <ol className="movehistorylist">
-        {moveHistory&&moveHistory.forEach((move) => (
-          <li>{move}</li>
-        ))}
-      </ol>
+      </nav>
+      <div className="currentmove">move # {currentMoveIndex}</div>
+      <div
+        style={{
+          display: "flex",
+          flexWrap: "wrap",
+          justifyContent: "space-evenly",
+          alignItems: "center",
+        }}
+        className="movehistorylist"
+      >
+        {moveHistory &&
+          moveHistory.map((board) => (
+            <section style={miniboard}>
+              {board.map((square, i) => (
+                <div style={minisquare}>{square}</div>
+              ))}
+            </section>
+          ))}
+
+        {moveHistory
+          ? moveHistory.map((item, boardReplica) => (
+              <li>
+                Board Replica {boardReplica == null ? "_" : boardReplica})(
+                {item}
+              </li>
+            ))
+          : null}
+      </div>
     </>
   );
 }
