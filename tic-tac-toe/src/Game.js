@@ -6,14 +6,12 @@ export default class Game extends Component {
   constructor(props) {
     super(props);
     this.state = {
-      currentMoveIndex: "1",
+      currentMoveIndex: 0,
       moveHistory: [],
       squares: Array(9).fill(null),
       nextMoveIs_X: true,
     };
   }
-
-
 
   handleMove = (i) => {
     //copy last table
@@ -26,11 +24,12 @@ export default class Game extends Component {
     //copy all tables, adding in current table
     const newMovesList = [...prevMoves, [...nextMoveSquares]];
     console.log({ newMovesList });
-
+    const moveCount = this.state.currentMoveIndex + 1;
     this.setState({
       nextMoveIs_X: !this.state.nextMoveIs_X,
       squares: nextMoveSquares,
       moveHistory: newMovesList,
+      currentMoveIndex: moveCount,
     });
   };
 
@@ -40,7 +39,6 @@ export default class Game extends Component {
   render() {
     return (
       <div className="game">
-
         <div className="game-board">
           <ErrorBoundary>
             <Board
