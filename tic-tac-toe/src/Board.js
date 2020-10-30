@@ -16,9 +16,14 @@ export default class Board extends Component {
       ]
 
     if (this.props.currentMoveIndex > 3) {
+//  loop through the winning combinations fro three in a row
       for (let [i] in winningCombos) {
+//  assign variables to the 1st 2nd and 3rd in a row for a combination
         const [a, b, c] = winningCombos[i];
+// if a ,b ,c are all 'x' return 'x'  
+// if a ,b ,c are all 'o' return 'o'
         if (squares[a] != null && squares[a] === squares[b] && squares[a] === squares[c]) { return squares[a] }
+// else return null aka falsey
       } return null;
     }
   }
@@ -35,13 +40,17 @@ export default class Board extends Component {
   }
 
   render() {
+
     let status = `Next player:${this.props.nextMoveIs_X ? "X" : "O"} `;
     const winner = this.callWinner(this.props.squares);
     if (winner) { status = `Winner:${winner}` }
+
     return (
       <div>
         <ErrorBoundary>
+          <div className="status">Move# {this.props.currentMoveIndex}</div>
           <div className="status">{status}</div>
+
         </ErrorBoundary>
         <ErrorBoundary>
           <div className="board-row">
