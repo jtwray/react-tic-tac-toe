@@ -2,7 +2,7 @@ import React, { Component } from "react";
 import ErrorBoundary from "./errorBoundary";
 import Square from './Square'
 export default class Board extends Component {
-  callWinner=(squares)=> {
+  callWinner = (squares) => {
     const winningCombos =
       [
         [0, 1, 2],
@@ -28,7 +28,7 @@ export default class Board extends Component {
       <ErrorBoundary>
         <Square
           value={this.props.squares[i]}
-          onClick={ ()=>this.props.handleMove(i)}
+          onClick={() => this.props.handleMove(i)}
         />
       </ErrorBoundary>
     );
