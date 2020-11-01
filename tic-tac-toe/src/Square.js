@@ -1,6 +1,7 @@
 import React, { Component } from "react";
 import PropTypes from "prop-types";
 export default class Square extends Component {
+    
   handleOnMouse() {}
   render() {
     return (
@@ -39,7 +40,6 @@ export default class Square extends Component {
         className="square"
         onClick={() => this.props.onClick(this.props.value)}
       >
-        {" "}
         {this.props.value}
       </button>
     );
