@@ -32,13 +32,14 @@ export default class Board extends Component {
       }
       return null;
     }
-  };
+  };k
 
   renderSquare(i) {
     return (
       <ErrorBoundary>
         <Square
           value={this.props.squares[i]}
+          winner={this.callWinner(this.props.squares)}
           onClick={() => this.props.handleMove(i)}
         />
       </ErrorBoundary>

@@ -38,7 +38,7 @@ export default class Square extends Component {
           height: "10vw",
         }}
         className="square"
-        onClick={() => this.props.onClick(this.props.value)}
+        onClick={() => this.props.winner?null:this.props.onClick(this.props.value)}
       >
         {this.props.value}
       </button>
